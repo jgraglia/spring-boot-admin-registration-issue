@@ -1,0 +1,62 @@
+version: '2'
+
+services:
+     admin-2.7.10:
+        build:
+          context: admin-2.7.10
+          dockerfile: Dockerfile
+        ports:
+            - "9910:9910"
+        environment:
+            - SERVER_PORT=9910
+            - security.basic.enabled=false
+            - management.security.enabled=false
+
+     admin-2.7.11:
+        build:
+          context: admin-2.7.11
+          dockerfile: Dockerfile
+        ports:
+            - "9911:9911"
+        environment:
+            - SERVER_PORT=9911
+            - security.basic.enabled=false
+            - management.security.enabled=false            
+
+     client-2.7.11:
+        build:
+          context: client-2.7.11
+          dockerfile: Dockerfile
+        ports:
+            - "9811:9811"
+        environment:
+            - SERVER_PORT=9811
+            - spring.application.name=client KO - 2.7.11
+            - spring.boot.admin.client.url=http://admin-2.7.11:9911,http://admin-2.7.10:9910
+            - spring.boot.admin.client.register-once=false
+            - spring.boot.admin.client.instance.service-url=http://client-2.7.11:9811
+            - management.endpoints.web.exposure.include="*"
+            - management.info.env.enabled=true
+            - management.endpoints.enabled-by-default=true
+            - management.endpoint.health.show-details=always
+            - security.basic.enabled=false
+            - management.security.enabled=false
+
+     client-2.7.10:
+        build:
+          context: client-2.7.10
+          dockerfile: Dockerfile
+        ports:
+            - "9810:9810"
+        environment:
+            - SERVER_PORT=9810
+            - spring.application.name=client OK - 2.7.10
+            - spring.boot.admin.client.url=http://admin-2.7.11:9911,http://admin-2.7.10:9910
+            - spring.boot.admin.client.register-once=false
+            - spring.boot.admin.client.instance.service-url=http://client-2.7.10:9810
+            - management.endpoints.web.exposure.include="*"
+            - management.info.env.enabled=true
+            - management.endpoints.enabled-by-default=true
+            - management.endpoint.health.show-details=always
+            - Xsecurity.basic.enabled=false
+            - Xanagement.security.enabled=false
