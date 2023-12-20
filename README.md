@@ -1,5 +1,7 @@
 # The issue...
 
+See [](https://github.com/codecentric/spring-boot-admin/issues/2997)
+
 With Spring Boot Admin Server 2.7.1+ additional health details are missing in event.
 
 ![](.README_images/sba-registration-issue.png)
