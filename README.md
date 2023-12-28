@@ -3,10 +3,10 @@
 *
 
 *
-See [https://github.com/codecentric/spring-boot-admin/issues/2997](https://github.com/codecentric/spring-boot-admin/issues/2997)
+See [https://github.com/codecentric/spring-boot-admin/issues/2997](https://github.com/codecentric/spring-boot-admin/issues/2997) = FIXED IN 2.7.15
 **
 
-With Spring Boot Admin Server 2.7.11+ additional health details are missing in event.
+With Spring Boot Admin Server 2.7.11+ additional health details are missing in event. Fixed in Spring Boot Admin Server 2.7.15
 
 ![](.README_images/sba-registration-issue.png)
 
@@ -27,14 +27,15 @@ Once started, 2 Spring Boot app (with Spring Boot Admin client) are available :
 * [Spring Boot Client 2.7.10](http://localhost:9810)
 * [Spring Boot Client 2.7.11](http://localhost:9811)
 
-and 2 Spring Boot Admin server are available :
+and 3 Spring Boot Admin server are available :
 
 * [Spring Boot Admin Server 2.7.10](http://localhost:9910)
 * [Spring Boot Admin Server 2.7.11](http://localhost:9911)
+* [Spring Boot Admin Server 2.7.15](http://localhost:9915)
 
 Both clients register themselves to all servers.
 
-Compare logs of Spring Boot Admin Server `2.7.10` vs `2.7.11`
+Compare logs of Spring Boot Admin Server `2.7.10` vs `2.7.11` (regression) and `2.7.15` (fix)
 
 # Dev
 

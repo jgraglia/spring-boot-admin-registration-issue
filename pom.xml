@@ -9,8 +9,9 @@
   <description>Demonstrate registration issue in SBA 2.7.11</description>
   
   <modules>
-    <module>admin-2.7.11</module>
     <module>admin-2.7.10</module>
+    <module>admin-2.7.11</module>
+    <module>admin-2.7.15</module>
     <module>client-2.7.10</module>
     <module>client-2.7.11</module>
   </modules>

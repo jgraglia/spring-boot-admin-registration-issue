@@ -22,6 +22,17 @@ services:
             - SECURITY_BASIC_ENABLED=false
             - MANAGEMENT_SECURITY_ENABLED=false
 
+     admin-2715:
+        build:
+          context: admin-2.7.15
+          dockerfile: Dockerfile
+        ports:
+            - "9915:9915"
+        environment:
+            - SERVER_PORT=9915
+            - SECURITY_BASIC_ENABLED=false
+            - MANAGEMENT_SECURITY_ENABLED=false
+ 
      client-2711:
         build:
           context: client-2.7.11
@@ -30,7 +41,7 @@ services:
             - "9811:9811"
         environment:
             - SERVER_PORT=9811
-            - SPRING_BOOT_ADMIN_CLIENT_URL=http://admin-2711:9911, http://admin-2710:9910
+            - SPRING_BOOT_ADMIN_CLIENT_URL=http://admin-2711:9911, http://admin-2710:9910, http://admin-2715:9915
             - spring.boot.admin.client.register-once=false
             - SPRING_BOOT_ADMIN_CLIENT_INSTANCE_SERVICE_URL=http://client-2711:9811
             - SECURITY_BASIC_ENABLED=false
@@ -44,7 +55,7 @@ services:
             - "9810:9810"
         environment:
             - SERVER_PORT=9810
-            - SPRING_BOOT_ADMIN_CLIENT_URL=http://admin-2711:9911,http://admin-2710:9910
+            - SPRING_BOOT_ADMIN_CLIENT_URL=http://admin-2711:9911,http://admin-2710:9910, http://admin-2715:9915
             - spring.boot.admin.client.register-once=false
             - SPRING_BOOT_ADMIN_CLIENT_INSTANCE_SERVICE_URL=http://client-2710:9810
             - SECURITY_BASIC_ENABLED=false
